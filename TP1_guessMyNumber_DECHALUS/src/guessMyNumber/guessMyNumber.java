@@ -21,7 +21,6 @@ public class guessMyNumber {
         Scanner sc = new Scanner(System.in);
         Random generateurAleat = new Random();
 
-        // --- 4. MENU DES DIFFICULTÉS ---
         System.out.println("Choisissez un niveau de difficulte :");
         System.out.println("1) Facile (0 a 100, tentatives illimitees)");
         System.out.println("2) Normal (0 a 500, tentatives illimitees)");
@@ -29,8 +28,8 @@ public class guessMyNumber {
         System.out.println("4) Mode cauchemar (0 a 100, indications parfois fausses)");
 
         int choix = sc.nextInt();
-        int max = 100;      // intervalle par défaut
-        int tentativesMax = Integer.MAX_VALUE; // illimité par défaut
+        int max = 100;
+        int tentativesMax = Integer.MAX_VALUE; 
         boolean cauchemar = false;
 
         switch (choix) {
@@ -52,14 +51,12 @@ public class guessMyNumber {
                 System.out.println("Choix invalide, on joue en mode facile.");
         }
 
-        // --- 1 & 2. GÉNÉRATION DU NOMBRE ---
         int secret = generateurAleat.nextInt(max + 1);
         int tentative;
         int compteur = 0;
 
         System.out.println("J'ai choisi un nombre entre 0 et " + max + ". A vous de jouer !");
 
-        // --- 2 & 3. BOUCLE DU JEU ---
         do {
             System.out.print("Entrez un nombre : ");
             tentative = sc.nextInt();
