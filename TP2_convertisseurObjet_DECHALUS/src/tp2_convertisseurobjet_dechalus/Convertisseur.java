@@ -51,4 +51,5 @@ public class Convertisseur {
 
     @Override
     public String toString() {
-        return "Nombre de conversions effectuees"
+        return "Nombre de conversions effectuees";
+    }}
