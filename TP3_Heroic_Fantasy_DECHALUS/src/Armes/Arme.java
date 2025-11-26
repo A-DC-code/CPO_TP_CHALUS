@@ -15,6 +15,7 @@ public abstract class Arme {
     public Arme(String nom,int attaque){
         this.attaque=attaque;
         this.nom=nom;
+    }
     
     public String getNom() {
         return nom;
