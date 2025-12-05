@@ -84,18 +84,22 @@ public class Interf_graphique extends javax.swing.JFrame {
 
                         nb1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         nb1.setText("1");
+                        nb1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb1);
 
                         nb2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         nb2.setText("2");
+                        nb2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb2);
 
                         nb3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         nb3.setText("3");
+                        nb3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb3);
 
                         nb4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         nb4.setText("4");
+                        nb4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb4);
 
                         getContentPane().add(nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 360, 140));
