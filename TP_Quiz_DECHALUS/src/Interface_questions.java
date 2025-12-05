@@ -270,7 +270,6 @@ private void initialiserQuestions() {
     new Question("Combien y a-t-il de bits dans un octet ?", "4", "8", "16", "32", 2),
     new Question("Dans quel pays se trouve la Tour de Pise ?", "France", "Italie", "Espagne", "Portugal", 2),
     new Question("Quel est le plus grand désert du monde ?", "Sahara", "Gobi", "Antarctique", "Kalahari", 3),
-
 new Question("Quel est le symbole chimique de l’or ?", "Ag", "Fe", "Au", "O", 3),
 new Question("Combien de continents compte-t-on généralement ?", "4", "5", "6", "7", 4),
 new Question("Quel est l’organe principal de la respiration chez l’être humain ?", "Cœur", "Poumons", "Foie", "Reins", 2),
