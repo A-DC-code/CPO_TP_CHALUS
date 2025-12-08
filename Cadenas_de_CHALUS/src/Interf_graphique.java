@@ -20,6 +20,7 @@ private cerveau_jeu cerveau = new cerveau_jeu();
      */
     public Interf_graphique() {
         initComponents();
+        jLabel3.setText("");
     cerveau.nouvellePartie();
         for (int i = 0; i < 4; i++) {
         joueur[i] = 0;          // Valeurs de départ pour le joueur
@@ -27,7 +28,7 @@ private cerveau_jeu cerveau = new cerveau_jeu();
        majLabels();     
 }
 
-    
+    public int compteur=0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +62,9 @@ private cerveau_jeu cerveau = new cerveau_jeu();
         jLabel2 = new javax.swing.JLabel();
         label_nb_tentatives = new javax.swing.JLabel();
         btn_recom = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,7 +204,23 @@ private cerveau_jeu cerveau = new cerveau_jeu();
                         getContentPane().add(label_nb_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 90, 50));
 
                         btn_recom.setText("Recommencer");
+                        btn_recom.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btn_recomMouseClicked(evt);
+                            }
+                        });
                         getContentPane().add(btn_recom, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, -1));
+
+                        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+                        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+                        jLabel3.setText("Bravo !!!");
+                        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 210, 70));
+
+                        jLabel4.setText("nombre de points :");
+                        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 110, 20));
+
+                        jLabel5.setText("jLabel5");
+                        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
 
                         pack();
                     }// </editor-fold>//GEN-END:initComponents
@@ -252,12 +272,26 @@ joueur[3] = cerveau_jeu.incrementer(joueur[3]);
     private int[] joueur = new int[4];
     
     private void btn_checkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkMouseClicked
-    int[] resultat = cerveau_jeu.comparerPlusMoins(joueur, cerveau.suiteMachine);
+        
+        int[] resultat = cerveau_jeu.comparerPlusMoins(joueur, cerveau.suiteMachine);
+if (resultat[0] == 4) {
+    compteur++;
+    jLabel3.setText("Bravo!!!");
+jLabel5.setText(String.valueOf(compteur));}
 
     label_juste.setText("Bonnes réponses : " + resultat[0]);
-    label_trh.setText("Trop élevés : " + resultat[1]);
-    label_trb.setText("Trop bas : " + resultat[2]);
+    label_trh.setText("Trop élevés : " + resultat[2]);
+    label_trb.setText("Trop bas : " + resultat[1]);
     }//GEN-LAST:event_btn_checkMouseClicked
+
+    private void btn_recomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recomMouseClicked
+jLabel3.setText("");
+    cerveau.nouvellePartie();
+        for (int i = 0; i < 4; i++) {
+        joueur[i] = 0;          // Valeurs de départ pour le joueur
+    }
+       majLabels();
+    }//GEN-LAST:event_btn_recomMouseClicked
 
     
     
@@ -301,6 +335,9 @@ joueur[3] = cerveau_jeu.incrementer(joueur[3]);
     private javax.swing.JButton btp4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel label_juste;
     private javax.swing.JLabel label_nb_tentatives;
