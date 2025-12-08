@@ -178,14 +178,8 @@ private cerveau_jeu cerveau = new cerveau_jeu();
                         jPanel3.add(btm4);
 
                         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 360, 50));
-
-                        label_juste.setText("Le nombre de bonnes réponses est : ");
                         getContentPane().add(label_juste, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
-
-                        label_trh.setText("le nombre de chiffres trop élevés :");
                         getContentPane().add(label_trh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
-
-                        label_trb.setText("le nombre de chiffres trop bas :");
                         getContentPane().add(label_trb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
                         btn_check.setText("vérifier");

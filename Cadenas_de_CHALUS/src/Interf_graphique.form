@@ -207,9 +207,6 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="label_juste">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Le nombre de bonnes r&#xe9;ponses est : "/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="50" y="430" width="-1" height="-1"/>
@@ -217,9 +214,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="label_trh">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="le nombre de chiffres trop &#xe9;lev&#xe9;s :"/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="50" y="450" width="-1" height="-1"/>
@@ -227,9 +221,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="label_trb">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="le nombre de chiffres trop bas :"/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="50" y="470" width="-1" height="-1"/>
