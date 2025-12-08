@@ -11,12 +11,19 @@ public class Interf_graphique extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Interf_graphique.class.getName());
 
+    
+    
+private cerveau_jeu cerveau = new cerveau_jeu();
+
     /**
      * Creates new form Interf_graphique
      */
     public Interf_graphique() {
         initComponents();
-    }
+    cerveau.nouvellePartie();
+}
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +68,11 @@ public class Interf_graphique extends javax.swing.JFrame {
         btn_plus.setLayout(new java.awt.GridLayout(1, 4));
 
         btp1.setText("/\\");
+            btp1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    btp1MouseClicked(evt);
+                }
+            });
             btp1.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btp1ActionPerformed(evt);
@@ -69,35 +81,54 @@ public class Interf_graphique extends javax.swing.JFrame {
             btn_plus.add(btp1);
 
             btp2.setText("/\\");
+                btp2.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        btp2MouseClicked(evt);
+                    }
+                });
                 btn_plus.add(btp2);
 
                 btp3.setText("/\\");
+                    btp3.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                            btp3MouseClicked(evt);
+                        }
+                    });
                     btn_plus.add(btp3);
 
                     btp4.setText("/\\");
+                        btp4.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btp4MouseClicked(evt);
+                            }
+                        });
                         btn_plus.add(btp4);
 
                         getContentPane().add(btn_plus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 360, 50));
 
                         nombres.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-                        nombres.setLayout(new java.awt.GridLayout());
+                        nombres.setLayout(new java.awt.GridLayout(1, 0));
 
                         nb1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                        nb1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         nb1.setText("1");
                         nb1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb1);
 
                         nb2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                        nb2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         nb2.setText("2");
                         nb2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb2);
 
                         nb3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                        nb3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         nb3.setText("3");
                         nb3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb3);
 
                         nb4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                        nb4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         nb4.setText("4");
                         nb4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
                         nombres.add(nb4);
@@ -107,26 +138,46 @@ public class Interf_graphique extends javax.swing.JFrame {
                         jPanel3.setLayout(new java.awt.GridLayout(1, 4));
 
                         btm1.setText("\\/");
+                        btm1.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btm1MouseClicked(evt);
+                            }
+                        });
                         jPanel3.add(btm1);
 
                         btm2.setText("\\/");
+                        btm2.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btm2MouseClicked(evt);
+                            }
+                        });
                         jPanel3.add(btm2);
 
                         btm3.setText("\\/");
+                        btm3.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btm3MouseClicked(evt);
+                            }
+                        });
                         jPanel3.add(btm3);
 
                         btm4.setText("\\/");
+                        btm4.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btm4MouseClicked(evt);
+                            }
+                        });
                         jPanel3.add(btm4);
 
                         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 360, 50));
 
-                        label_juste.setText("jLabel2");
+                        label_juste.setText("Le nombre de bonnes réponses est : ");
                         getContentPane().add(label_juste, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
-                        label_trh.setText("jLabel2");
+                        label_trh.setText("le nombre de chiffres trop élevés :");
                         getContentPane().add(label_trh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
-                        label_trb.setText("jLabel2");
+                        label_trb.setText("le nombre de chiffres trop bas :");
                         getContentPane().add(label_trb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
                         btn_check.setText("vérifier");
@@ -148,6 +199,54 @@ public class Interf_graphique extends javax.swing.JFrame {
     private void btp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btp1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btp1ActionPerformed
+
+    private void btp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp1MouseClicked
+    int valeur = Integer.parseInt(nb1.getText());
+    valeur = cerveau_jeu.incrementer(valeur);
+    nb1.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btp1MouseClicked
+
+    private void btm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm1MouseClicked
+    int valeur = Integer.parseInt(nb1.getText());
+    valeur = cerveau_jeu.decrementer(valeur);
+    nb1.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btm1MouseClicked
+
+    private void btp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp2MouseClicked
+    int valeur = Integer.parseInt(nb2.getText());
+    valeur = cerveau_jeu.incrementer(valeur);
+    nb2.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btp2MouseClicked
+
+    private void btm2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm2MouseClicked
+    int valeur = Integer.parseInt(nb2.getText());
+    valeur = cerveau_jeu.decrementer(valeur);
+    nb2.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btm2MouseClicked
+
+    private void btp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp3MouseClicked
+    int valeur = Integer.parseInt(nb3.getText());
+    valeur = cerveau_jeu.incrementer(valeur);
+    nb3.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btp3MouseClicked
+
+    private void btm3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm3MouseClicked
+    int valeur = Integer.parseInt(nb3.getText());
+    valeur = cerveau_jeu.decrementer(valeur);
+    nb3.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btm3MouseClicked
+
+    private void btp4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp4MouseClicked
+    int valeur = Integer.parseInt(nb4.getText());
+    valeur = cerveau_jeu.incrementer(valeur);
+    nb4.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btp4MouseClicked
+
+    private void btm4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm4MouseClicked
+    int valeur = Integer.parseInt(nb4.getText());
+    valeur = cerveau_jeu.decrementer(valeur);
+    nb4.setText(String.valueOf(valeur));
+    }//GEN-LAST:event_btm4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -199,4 +298,5 @@ public class Interf_graphique extends javax.swing.JFrame {
     private javax.swing.JLabel nb4;
     private javax.swing.JPanel nombres;
     // End of variables declaration//GEN-END:variables
+
 }
