@@ -21,6 +21,10 @@ private cerveau_jeu cerveau = new cerveau_jeu();
     public Interf_graphique() {
         initComponents();
     cerveau.nouvellePartie();
+        for (int i = 0; i < 4; i++) {
+        joueur[i] = 0;          // Valeurs de départ pour le joueur
+    }
+       majLabels();     
 }
 
     
@@ -181,6 +185,11 @@ private cerveau_jeu cerveau = new cerveau_jeu();
                         getContentPane().add(label_trb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
                         btn_check.setText("vérifier");
+                        btn_check.addMouseListener(new java.awt.event.MouseAdapter() {
+                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                btn_checkMouseClicked(evt);
+                            }
+                        });
                         getContentPane().add(btn_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, -1, -1));
 
                         jLabel2.setText("Tentatives");
@@ -201,53 +210,58 @@ private cerveau_jeu cerveau = new cerveau_jeu();
     }//GEN-LAST:event_btp1ActionPerformed
 
     private void btp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp1MouseClicked
-    int valeur = Integer.parseInt(nb1.getText());
-    valeur = cerveau_jeu.incrementer(valeur);
-    nb1.setText(String.valueOf(valeur));
+joueur[0] = cerveau_jeu.incrementer(joueur[0]);
+    nb1.setText(String.valueOf(joueur[0]));
     }//GEN-LAST:event_btp1MouseClicked
 
     private void btm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm1MouseClicked
-    int valeur = Integer.parseInt(nb1.getText());
-    valeur = cerveau_jeu.decrementer(valeur);
-    nb1.setText(String.valueOf(valeur));
+    joueur[0] = cerveau_jeu.decrementer(joueur[0]);
+    nb1.setText(String.valueOf(joueur[0]));
     }//GEN-LAST:event_btm1MouseClicked
 
     private void btp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp2MouseClicked
-    int valeur = Integer.parseInt(nb2.getText());
-    valeur = cerveau_jeu.incrementer(valeur);
-    nb2.setText(String.valueOf(valeur));
+joueur[1] = cerveau_jeu.incrementer(joueur[1]);
+    nb2.setText(String.valueOf(joueur[1]));
     }//GEN-LAST:event_btp2MouseClicked
 
     private void btm2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm2MouseClicked
-    int valeur = Integer.parseInt(nb2.getText());
-    valeur = cerveau_jeu.decrementer(valeur);
-    nb2.setText(String.valueOf(valeur));
+    joueur[1] = cerveau_jeu.decrementer(joueur[1]);
+    nb2.setText(String.valueOf(joueur[1]));
     }//GEN-LAST:event_btm2MouseClicked
 
     private void btp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp3MouseClicked
-    int valeur = Integer.parseInt(nb3.getText());
-    valeur = cerveau_jeu.incrementer(valeur);
-    nb3.setText(String.valueOf(valeur));
+joueur[2] = cerveau_jeu.incrementer(joueur[2]);
+    nb3.setText(String.valueOf(joueur[2]));
     }//GEN-LAST:event_btp3MouseClicked
 
     private void btm3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm3MouseClicked
-    int valeur = Integer.parseInt(nb3.getText());
-    valeur = cerveau_jeu.decrementer(valeur);
-    nb3.setText(String.valueOf(valeur));
+    joueur[2] = cerveau_jeu.decrementer(joueur[2]);
+    nb3.setText(String.valueOf(joueur[2]));
     }//GEN-LAST:event_btm3MouseClicked
 
     private void btp4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btp4MouseClicked
-    int valeur = Integer.parseInt(nb4.getText());
-    valeur = cerveau_jeu.incrementer(valeur);
-    nb4.setText(String.valueOf(valeur));
+joueur[3] = cerveau_jeu.incrementer(joueur[3]);
+    nb4.setText(String.valueOf(joueur[3]));
     }//GEN-LAST:event_btp4MouseClicked
 
     private void btm4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btm4MouseClicked
-    int valeur = Integer.parseInt(nb4.getText());
-    valeur = cerveau_jeu.decrementer(valeur);
-    nb4.setText(String.valueOf(valeur));
+    joueur[3] = cerveau_jeu.decrementer(joueur[3]);
+    nb4.setText(String.valueOf(joueur[3]));
     }//GEN-LAST:event_btm4MouseClicked
 
+    private int[] joueur = new int[4];
+    
+    private void btn_checkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkMouseClicked
+    int[] resultat = cerveau_jeu.comparerPlusMoins(joueur, cerveau.suiteMachine);
+
+    label_juste.setText("Bonnes réponses : " + resultat[0]);
+    label_trh.setText("Trop élevés : " + resultat[1]);
+    label_trb.setText("Trop bas : " + resultat[2]);
+    }//GEN-LAST:event_btn_checkMouseClicked
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -299,4 +313,11 @@ private cerveau_jeu cerveau = new cerveau_jeu();
     private javax.swing.JPanel nombres;
     // End of variables declaration//GEN-END:variables
 
+    
+    private void majLabels() {
+    nb1.setText(String.valueOf(joueur[0]));
+    nb2.setText(String.valueOf(joueur[1]));
+    nb3.setText(String.valueOf(joueur[2]));
+    nb4.setText(String.valueOf(joueur[3]));
+}
 }
