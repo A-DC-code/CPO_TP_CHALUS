@@ -45,5 +45,13 @@ public void nouvellePartie() {
 
 }
  
+public static int incrementer(int n) {
+    return (n + 1) % 10;
+}
+
+public static int decrementer(int n) {
+    return (n + 9) % 10;
+}
+
 
 }
