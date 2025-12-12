@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author chalu
@@ -25,10 +25,13 @@ private cerveau_jeu cerveau = new cerveau_jeu();
         for (int i = 0; i < 4; i++) {
         joueur[i] = 0;          // Valeurs de départ pour le joueur
     }
-       majLabels();     
+       essaisRestants = 10;
+label_nb_tentatives.setText("0 sur 10");
+        majLabels();     
 }
 
     public int compteur=0;
+private int essaisRestants = 10; // nombre d'essais restants
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -212,9 +215,7 @@ private cerveau_jeu cerveau = new cerveau_jeu();
 
                         jLabel4.setText("nombre de points :");
                         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 110, 20));
-
-                        jLabel5.setText("jLabel5");
-                        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+                        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 40, 20));
 
                         pack();
                     }// </editor-fold>//GEN-END:initComponents
@@ -266,16 +267,26 @@ joueur[3] = cerveau_jeu.incrementer(joueur[3]);
     private int[] joueur = new int[4];
     
     private void btn_checkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_checkMouseClicked
-        
-        int[] resultat = cerveau_jeu.comparerPlusMoins(joueur, cerveau.suiteMachine);
-if (resultat[0] == 4) {
-    compteur++;
-    jLabel3.setText("Bravo!!!");
-jLabel5.setText(String.valueOf(compteur));}
+                                          if (essaisRestants <= 0) {
+        JOptionPane.showMessageDialog(this, "Vous n'avez plus d'essais !");
+        return;
+    }
+
+    essaisRestants--;
+    label_nb_tentatives.setText((10 - essaisRestants) + " sur 10"); // <-- ligne à ajouter
+
+    int[] resultat = cerveau_jeu.comparerPlusMoins(joueur, cerveau.suiteMachine);
+
+    if (resultat[0] == 4) {
+        compteur++;
+        jLabel3.setText("Bravo!!!");
+        jLabel5.setText(String.valueOf(compteur));
+    }
 
     label_juste.setText("Bonnes réponses : " + resultat[0]);
     label_trh.setText("Trop élevés : " + resultat[2]);
     label_trb.setText("Trop bas : " + resultat[1]);
+
     }//GEN-LAST:event_btn_checkMouseClicked
 
     private void btn_recomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_recomMouseClicked
